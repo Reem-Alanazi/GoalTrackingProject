@@ -17,8 +17,8 @@
         android:fontFamily="sans-serif-smallcaps"
         android:gravity="center"
         android:text="Goal Tracking"
+        android:textSize="@dimen/splash_screen_title_text_size"
         android:textColor="@color/white"
-
         android:textStyle="bold" />
 
 

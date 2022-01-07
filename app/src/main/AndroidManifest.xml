@@ -10,10 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GoalTrackingProject" >
+        android:theme="@style/Theme.GoalTrackingProject">
+
         <activity
             android:name=".SplashActivity"
-            android:exported="true" >
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/Theme.GoalTrackingProject.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

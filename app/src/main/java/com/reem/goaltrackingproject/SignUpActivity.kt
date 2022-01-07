@@ -1,6 +1,5 @@
 package com.reem.goaltrackingproject
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.WindowManager

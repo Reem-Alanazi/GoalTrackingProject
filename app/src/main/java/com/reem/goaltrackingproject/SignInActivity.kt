@@ -1,14 +1,12 @@
 package com.reem.goaltrackingproject
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.reem.goaltrackingproject.data.User
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : BaseActivity() {
@@ -32,13 +30,6 @@ class SignInActivity : BaseActivity() {
         btn_sign_in.setOnClickListener {
             signInRegisteredUser()
         }
-    }
-
-
-    fun signInSuccess(user : User){
-        hideProgressDialog()
-        startActivity(Intent(this,MainActivity::class.java))
-        finish()
     }
 
 

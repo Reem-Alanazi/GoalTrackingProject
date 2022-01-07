@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1051684535100",
+    "project_id": "goal-tracking-284a1",
+    "storage_bucket": "goal-tracking-284a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051684535100:android:c465580e920ea9b13c7c39",
+        "android_client_info": {
+          "package_name": "com.reem.goaltrackingproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051684535100-unfnhufsg32d8vct2kgqjjv660jocc96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcX-phaKpz5w8XBml3i7kusgj_wnkDVTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1051684535100-unfnhufsg32d8vct2kgqjjv660jocc96.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

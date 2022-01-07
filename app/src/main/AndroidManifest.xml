@@ -13,7 +13,9 @@
         android:theme="@style/Theme.GoalTrackingProject">
         <activity
             android:name=".SignUpActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.GoalTrackingProject.NoActionBar"/>
         <activity
             android:name=".RegisterActivity"
             android:exported="false"

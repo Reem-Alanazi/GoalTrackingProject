@@ -17,4 +17,8 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
 
+    <!-- Sign in screen Text -->
+    <string name="sign_in_description_text"> Enter your name and email and password to sign in.</string>
+
+
 </resources>

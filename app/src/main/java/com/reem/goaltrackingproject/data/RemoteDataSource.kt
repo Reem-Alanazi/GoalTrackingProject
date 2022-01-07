@@ -13,6 +13,24 @@ class RemoteDataSource {
     private val db = FirebaseFirestore.getInstance()
 
 
+    fun registerUser(activity: SignUpActivity, userInfo : User){
+
+        db.collection(Constants.USERS)
+
+            .document(getCurrentUserId()).set(userInfo , SetOptions.merge())
+
+
+            .addOnSuccessListener{
+
+                activity.userRegisteredSuccess()
+
+            }.addOnFailureListener { e ->
+
+                Log.e(activity.javaClass.simpleName, "Error")
+
+            }
+    }
+
 
 
     // check

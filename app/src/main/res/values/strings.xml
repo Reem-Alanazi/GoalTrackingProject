@@ -2,5 +2,13 @@
 
     <string name="app_name">Goal Tracking</string>
 
+    <!-- Register page Text -->
+
+    <string name="image_contentDescription">image</string>
+    <string name="let_s_get_started_text">Get started</string>
+    <string name="intro_text_description">App will help you to achieve your goals </string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="sign_up">SIGN UP</string>
+
 
 </resources>

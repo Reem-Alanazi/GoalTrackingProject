@@ -20,5 +20,9 @@
     <!-- Sign in screen Text -->
     <string name="sign_in_description_text"> Enter your name and email and password to sign in.</string>
 
+    <!-- Text  -->
+    <string name="please_wait">Please Wait..</string>
+
+
 
 </resources>

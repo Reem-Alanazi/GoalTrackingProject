@@ -50,6 +50,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
 
+    // Declare the dependency for the Cloud Firestore library
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+
 
     // lottie
     def lottieVersion = "3.4.0"

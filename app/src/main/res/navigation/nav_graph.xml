@@ -10,4 +10,9 @@
         android:name="com.reem.goaltrackingproject.ListGoalFragment"
         android:label="fragment_list_goal"
         tools:layout="@layout/fragment_list_goal" />
+    <fragment
+        android:id="@+id/addGoalFragment"
+        android:name="com.reem.goaltrackingproject.AddGoalFragment"
+        android:label="fragment_add_goal"
+        tools:layout="@layout/fragment_add_goal" />
 </navigation>

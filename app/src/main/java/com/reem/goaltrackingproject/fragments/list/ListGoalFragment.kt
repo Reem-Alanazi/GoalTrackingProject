@@ -1,10 +1,8 @@
 package com.reem.goaltrackingproject.fragments.list
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.reem.goaltrackingproject.R
 import kotlinx.android.synthetic.main.fragment_list_goal.view.*
@@ -25,7 +23,18 @@ class ListGoalFragment : Fragment() {
          findNavController().navigate(R.id.action_listGoalFragment_to_addGoalFragment)
         }
 
+        view.setOnClickListener {
+            findNavController().navigate(R.id.action_listGoalFragment_to_updateGoalFragment)
+
+        }
+
+        setHasOptionsMenu(true)
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.list_goal_fragment_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
 }

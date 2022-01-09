@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/dialog_progress.xml" value="0.23072916666666668" />
+        <entry key="app/src/main/res/layout/fragment_add_goal.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_list_goal.xml" value="0.39559706470980655" />
       </map>
     </option>

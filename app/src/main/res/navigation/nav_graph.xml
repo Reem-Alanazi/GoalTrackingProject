@@ -7,12 +7,32 @@
 
     <fragment
         android:id="@+id/listGoalFragment"
-        android:name="com.reem.goaltrackingproject.ListGoalFragment"
+        android:name="com.reem.goaltrackingproject.fragments.list.ListGoalFragment"
         android:label="fragment_list_goal"
-        tools:layout="@layout/fragment_list_goal" />
+        tools:layout="@layout/fragment_list_goal" >
+        <action
+            android:id="@+id/action_listGoalFragment_to_addGoalFragment"
+            app:destination="@id/addGoalFragment" />
+        <action
+            android:id="@+id/action_listGoalFragment_to_updateGoalFragment"
+            app:destination="@id/updateGoalFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addGoalFragment"
-        android:name="com.reem.goaltrackingproject.AddGoalFragment"
+        android:name="com.reem.goaltrackingproject.fragments.add.AddGoalFragment"
         android:label="fragment_add_goal"
-        tools:layout="@layout/fragment_add_goal" />
+        tools:layout="@layout/fragment_add_goal" >
+        <action
+            android:id="@+id/action_addGoalFragment_to_listGoalFragment"
+            app:destination="@id/listGoalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateGoalFragment"
+        android:name="com.reem.goaltrackingproject.fragments.update.UpdateGoalFragment"
+        android:label="fragment_update_goal"
+        tools:layout="@layout/fragment_update_goal" >
+        <action
+            android:id="@+id/action_updateGoalFragment_to_listGoalFragment"
+            app:destination="@id/listGoalFragment" />
+    </fragment>
 </navigation>

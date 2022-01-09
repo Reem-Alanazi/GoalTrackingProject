@@ -30,7 +30,7 @@
         android:layout_marginTop="8dp"
         android:paddingStart="25dp"
         android:paddingEnd="25dp"
-        android:entries="@array/time"
+        android:entries="@array/period"
         android:background="@drawable/custom_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listGoalFragment">
+
+    <fragment
+        android:id="@+id/listGoalFragment"
+        android:name="com.reem.goaltrackingproject.fragments.list.ListGoalFragment"
+        android:label="List Goal"
+        tools:layout="@layout/fragment_list_goal" >
+        <action
+            android:id="@+id/action_listGoalFragment_to_addGoalFragment"
+            app:destination="@id/addGoalFragment" />
+        <action
+            android:id="@+id/action_listGoalFragment_to_updateGoalFragment"
+            app:destination="@id/updateGoalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addGoalFragment"
+        android:name="com.reem.goaltrackingproject.fragments.add.AddGoalFragment"
+        android:label="Add new Goal"
+        tools:layout="@layout/fragment_add_goal" >
+        <action
+            android:id="@+id/action_addGoalFragment_to_listGoalFragment"
+            app:destination="@id/listGoalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateGoalFragment"
+        android:name="com.reem.goaltrackingproject.fragments.update.UpdateGoalFragment"
+        android:label="Update"
+        tools:layout="@layout/fragment_update_goal" >
+        <action
+            android:id="@+id/action_updateGoalFragment_to_listGoalFragment"
+            app:destination="@id/listGoalFragment" />
+    </fragment>
+</navigation>

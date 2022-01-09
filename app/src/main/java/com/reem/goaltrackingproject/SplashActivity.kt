@@ -18,19 +18,17 @@ class SplashActivity : AppCompatActivity() {
         )
 
         Handler().postDelayed({
+
             //auto login
             var currentUserID = RemoteDataSource().getCurrentUserId()
 
-
             // if user already have account directly home\main page
+
             if (currentUserID.isNotEmpty()){
                 startActivity(Intent(this, MainActivity::class.java))
-
             }else{
-
                 startActivity(Intent(this, RegisterActivity::class.java))}
             finish()
         }, 2500)
     }
-
 }

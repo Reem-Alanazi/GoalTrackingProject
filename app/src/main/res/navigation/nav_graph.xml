@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/listGoalFragment"
         android:name="com.reem.goaltrackingproject.fragments.list.ListGoalFragment"
-        android:label="fragment_list_goal"
+        android:label="List Goal"
         tools:layout="@layout/fragment_list_goal" >
         <action
             android:id="@+id/action_listGoalFragment_to_addGoalFragment"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/addGoalFragment"
         android:name="com.reem.goaltrackingproject.fragments.add.AddGoalFragment"
-        android:label="fragment_add_goal"
+        android:label="Add new Goal"
         tools:layout="@layout/fragment_add_goal" >
         <action
             android:id="@+id/action_addGoalFragment_to_listGoalFragment"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/updateGoalFragment"
         android:name="com.reem.goaltrackingproject.fragments.update.UpdateGoalFragment"
-        android:label="fragment_update_goal"
+        android:label="Update"
         tools:layout="@layout/fragment_update_goal" >
         <action
             android:id="@+id/action_updateGoalFragment_to_listGoalFragment"

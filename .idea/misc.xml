@@ -7,13 +7,14 @@
         <entry key="app/src/main/res/drawable-v24/button_shape_rounded_white.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_back.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/intro_image.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/icon_add.xml" value="0.20555555555555555" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.37523771829103286" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/dialog_progress.xml" value="0.23072916666666668" />
-        <entry key="app/src/main/res/layout/fragment_list_goal.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_list_goal.xml" value="0.39559706470980655" />
       </map>
     </option>
   </component>

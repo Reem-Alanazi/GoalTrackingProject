@@ -1,4 +1,4 @@
-package com.reem.goaltrackingproject
+package com.reem.goaltrackingproject.activities
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -6,6 +6,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.reem.goaltrackingproject.R
 import com.reem.goaltrackingproject.data.RemoteDataSource
 import com.reem.goaltrackingproject.data.User
 import kotlinx.android.synthetic.main.activity_sign_up.*

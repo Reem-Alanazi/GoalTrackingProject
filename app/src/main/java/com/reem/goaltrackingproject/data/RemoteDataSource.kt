@@ -1,12 +1,11 @@
 package com.reem.goaltrackingproject.data
 
-import android.app.Activity
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.reem.goaltrackingproject.Constants
-import com.reem.goaltrackingproject.SignUpActivity
+import com.reem.goaltrackingproject.activities.SignUpActivity
 
 class RemoteDataSource {
 

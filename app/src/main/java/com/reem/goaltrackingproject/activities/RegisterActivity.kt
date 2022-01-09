@@ -1,8 +1,10 @@
-package com.reem.goaltrackingproject
+package com.reem.goaltrackingproject.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.reem.goaltrackingproject.R
+import com.reem.goaltrackingproject.activities.SignInActivity
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -16,7 +18,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         btn_sign_in_intro.setOnClickListener {
-            startActivity(Intent(this,SignInActivity::class.java))
+            startActivity(Intent(this, SignInActivity::class.java))
         }
 
     }

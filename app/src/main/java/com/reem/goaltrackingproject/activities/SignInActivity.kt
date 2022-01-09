@@ -1,4 +1,4 @@
-package com.reem.goaltrackingproject
+package com.reem.goaltrackingproject.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.reem.goaltrackingproject.MainActivity
+import com.reem.goaltrackingproject.R
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : BaseActivity() {
@@ -48,7 +50,7 @@ class SignInActivity : BaseActivity() {
                         Log.d("SignIn","SignInWithEmailAndPassword")
                         val user = auth.currentUser
                         // go main activity
-                        startActivity(Intent(this,MainActivity::class.java))
+                        startActivity(Intent(this, MainActivity::class.java))
                     } else{
                         Log.w("SignIn","signInWithEmailAndPassword",task.exception)
                         Toast.makeText(baseContext,"Authentication failed.", Toast.LENGTH_SHORT).show()

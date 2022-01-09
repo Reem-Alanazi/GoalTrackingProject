@@ -1,10 +1,13 @@
-package com.reem.goaltrackingproject
+package com.reem.goaltrackingproject.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
+import com.reem.goaltrackingproject.MainActivity
+import com.reem.goaltrackingproject.R
+import com.reem.goaltrackingproject.activities.RegisterActivity
 import com.reem.goaltrackingproject.data.RemoteDataSource
 
 class SplashActivity : AppCompatActivity() {

@@ -1,10 +1,11 @@
-package com.reem.goaltrackingproject
+package com.reem.goaltrackingproject.activities
 
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
+import com.reem.goaltrackingproject.R
 import kotlinx.android.synthetic.main.dialog_progress.*
 
 open class BaseActivity : AppCompatActivity() {

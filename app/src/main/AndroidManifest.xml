@@ -12,22 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoalTrackingProject">
         <activity
-            android:name=".SignInActivity"
+            android:name=".activities.SignInActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.GoalTrackingProject.NoActionBar"/>
         <activity
-            android:name=".SignUpActivity"
+            android:name=".activities.SignUpActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.GoalTrackingProject.NoActionBar" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.GoalTrackingProject.NoActionBar" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".activities.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.GoalTrackingProject.NoActionBar">

@@ -12,10 +12,18 @@
         tools:layout="@layout/fragment_list_goal" >
         <action
             android:id="@+id/action_listGoalFragment_to_addGoalFragment"
-            app:destination="@id/addGoalFragment" />
+            app:destination="@id/addGoalFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_listGoalFragment_to_updateGoalFragment"
-            app:destination="@id/updateGoalFragment" />
+            app:destination="@id/updateGoalFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
     </fragment>
     <fragment
         android:id="@+id/addGoalFragment"

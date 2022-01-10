@@ -12,12 +12,14 @@ import com.reem.goaltrackingproject.R
 import com.reem.goaltrackingproject.data.GoalData
 import com.reem.goaltrackingproject.data.Period
 import com.reem.goaltrackingproject.viewmodel.GoalViewModel
+import com.reem.goaltrackingproject.viewmodel.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_add_goal.*
 
 
 class AddGoalFragment : Fragment() {
 
     private val mGoalViewModel : GoalViewModel by activityViewModels()
+    private val mSharedViewModel : SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,11 +55,11 @@ class AddGoalFragment : Fragment() {
         val mPeriod = period_spinner.selectedItem.toString()
         val mDescription = description_et.text.toString()
         // if validation is true i will insert data to database
-        val validation = verifyDataFromUser(mTitle,mDescription)
+        val validation = mSharedViewModel.verifyDataFromUser(mTitle,mDescription)
         if (validation){
             val newDataInsert = GoalData(
                 0,mTitle,
-                convertPeriod(mPeriod), // mPeriod need to convert to string so i use fun pares
+                mSharedViewModel.convertPeriod(mPeriod), // mPeriod need to convert to string so i use fun pares
                 mDescription
             )
 
@@ -73,20 +75,5 @@ class AddGoalFragment : Fragment() {
 
     }
 
-    // if null or not
-    private fun verifyDataFromUser(title: String, description : String ): Boolean{
-        return if(TextUtils.isEmpty(title)|| TextUtils.isEmpty(description)){
-            false
-        }else !(title.isEmpty() || description.isEmpty())
 
-    }
-
-    private fun convertPeriod(period : String): Period{
-        return when(period){
-            "Day" -> (Period.DAY)
-            "Week" -> (Period.WEEK)
-            "Month" -> (Period.MONTH)
-            else -> (Period.YEAR)
-        }
-    }
 }

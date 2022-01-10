@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/drawable/icon_delete.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/icon_save.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/icon_search.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/item_background.xml" value="0.1398148148148148" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.37523771829103286" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.23072916666666668" />

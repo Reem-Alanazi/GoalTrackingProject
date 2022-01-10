@@ -21,5 +21,12 @@
     <color name="secondary_text_color">#7A8089</color>
     <color name="snackbar_error_color">#F72400</color>
 
+    <!-- Filter color for period -->
+
+    <color name="red">#F3584E</color>
+    <color name="yellow">#E4CB39</color>
+    <color name="blue">#292CE6</color>
+    <color name="green">#78DC64</color>
+
 
 </resources>

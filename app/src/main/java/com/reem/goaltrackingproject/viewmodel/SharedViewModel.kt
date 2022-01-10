@@ -2,11 +2,15 @@ package com.reem.goaltrackingproject.viewmodel
 
 import android.app.Application
 import android.text.TextUtils
+import android.view.View
+import android.widget.AdapterView
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.AndroidViewModel
+import com.reem.goaltrackingproject.R
 import com.reem.goaltrackingproject.data.Period
 
 class SharedViewModel(application: Application):AndroidViewModel(application){
-
 
     // if null or not
      fun verifyDataFromUser(title: String, description : String ): Boolean{
@@ -24,6 +28,28 @@ class SharedViewModel(application: Application):AndroidViewModel(application){
             else -> (Period.YEAR)
         }
     }
+
+    // color period text when user pike from spinner
+    val listener: AdapterView.OnItemSelectedListener = object :
+        AdapterView.OnItemSelectedListener{
+
+        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            when(position){
+              0 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.red))}
+              1 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.blue))}
+              2 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.yellow))}
+              3 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.green))}
+
+            }
+        }
+
+        override fun onNothingSelected(parent: AdapterView<*>?) {
+            TODO("Not yet implemented")
+        }
+
+    }
+
+
 
 
 }

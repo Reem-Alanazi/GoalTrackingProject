@@ -1,9 +1,12 @@
-package com.reem.goaltrackingproject.data
+package com.reem.goaltrackingproject.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.reem.goaltrackingproject.data.GoalData
+import com.reem.goaltrackingproject.data.GoalLocalDatabase
+import com.reem.goaltrackingproject.data.GoalRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

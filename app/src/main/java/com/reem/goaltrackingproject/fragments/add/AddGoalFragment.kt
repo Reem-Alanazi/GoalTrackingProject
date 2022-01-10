@@ -14,6 +14,7 @@ import com.reem.goaltrackingproject.data.Period
 import com.reem.goaltrackingproject.viewmodel.GoalViewModel
 import com.reem.goaltrackingproject.viewmodel.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_add_goal.*
+import kotlinx.android.synthetic.main.fragment_add_goal.view.*
 
 
 class AddGoalFragment : Fragment() {
@@ -32,6 +33,8 @@ class AddGoalFragment : Fragment() {
 
         //set up menu
         setHasOptionsMenu(true)
+
+        view.period_spinner.onItemSelectedListener = mSharedViewModel.listener
 
         return view
     }

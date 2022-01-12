@@ -37,8 +37,10 @@
     <string name="add">Add</string>
     <string name="delete">Delete</string>
     <string name="save">Save</string>
+    <string name="sign_out">Sign out</string>
+    <string name="title_goal">Title Goal</string>
 
-    <string-array name="time">
+    <string-array name="period">
         <item>Day</item>
         <item>Week</item>
         <item>Month</item>

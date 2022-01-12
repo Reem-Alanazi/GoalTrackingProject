@@ -37,5 +37,10 @@
         android:title="@string/delete_all"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/menu_sign_out"
+        android:title="@string/sign_out"
+        app:showAsAction="never"/>
+
 
 </menu>

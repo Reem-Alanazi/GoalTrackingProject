@@ -17,6 +17,7 @@ class UpdateGoalFragment : Fragment() {
         // set up
         setHasOptionsMenu(true)
 
+
         return inflater.inflate(R.layout.fragment_update_goal, container, false)
     }
 

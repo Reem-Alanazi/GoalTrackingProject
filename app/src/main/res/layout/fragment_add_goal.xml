@@ -24,13 +24,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/period_spinner"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
         android:paddingStart="25dp"
         android:paddingEnd="25dp"
-        android:entries="@array/time"
+        android:entries="@array/period"
         android:background="@drawable/custom_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -54,7 +54,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/period_spinner"
         app:layout_constraintVertical_bias="0.0" />
 
 

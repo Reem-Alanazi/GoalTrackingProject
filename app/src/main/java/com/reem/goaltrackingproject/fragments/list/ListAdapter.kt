@@ -29,7 +29,8 @@ class ListAdapter :RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
             title_goal_text.text = goalDataList[position].title
             description_goal_text.text = goalDataList[position].description
             item_background.setOnClickListener {
-                findNavController().navigate(R.id.action_listGoalFragment_to_updateGoalFragment)
+                val action = ListGoalFragmentDirections.actionListGoalFragmentToUpdateGoalFragment(goalDataList[position])
+                findNavController().navigate(action)
             }
 
         }

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.reem.goaltrackingproject.R
 import com.reem.goaltrackingproject.data.GoalData
@@ -27,6 +28,10 @@ class ListAdapter :RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
         holder.itemView.apply{
             title_goal_text.text = goalDataList[position].title
             description_goal_text.text = goalDataList[position].description
+            item_background.setOnClickListener {
+                findNavController().navigate(R.id.action_listGoalFragment_to_updateGoalFragment)
+            }
+
         }
 
         when(goalDataList[position].period){

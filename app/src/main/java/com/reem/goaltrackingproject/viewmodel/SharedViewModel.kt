@@ -31,13 +31,14 @@ class SharedViewModel(application: Application):AndroidViewModel(application){
 
     // color period text when user pike from spinner
     val listener: AdapterView.OnItemSelectedListener = object :
+
         AdapterView.OnItemSelectedListener{
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             when(position){
-              0 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.green))}
+              0 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.red))}
               1 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.blue))}
               2 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.yellow))}
-              3 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.red))}
+              3 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.green))}
             }
         }
 

@@ -18,7 +18,7 @@ class GoalViewModel(application: Application):AndroidViewModel(application) {
     private val repository : GoalRepository
 
        // this val will holds live data object
-    private  val getAllData:LiveData<List<GoalData>>
+     val getAllData:LiveData<List<GoalData>>
 
     init {
         repository = GoalRepository(goalDao)

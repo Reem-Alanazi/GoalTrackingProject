@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="13dp">
+    android:paddingStart="12dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginEnd="30dp"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item_background"
@@ -19,12 +22,15 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/period_filter_card"
-            android:layout_width="12dp"
-            android:layout_height="match_parent"
+            android:layout_width="4dp"
+            android:layout_height="65dp"
+            android:layout_marginEnd="4dp"
+            android:outlineAmbientShadowColor="@color/black"
+            android:outlineSpotShadowColor="@color/black"
             app:cardBackgroundColor="@color/blue"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/title_goal_text"

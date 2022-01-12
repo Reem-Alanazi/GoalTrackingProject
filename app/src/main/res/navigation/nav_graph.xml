@@ -42,5 +42,8 @@
         <action
             android:id="@+id/action_updateGoalFragment_to_listGoalFragment"
             app:destination="@id/listGoalFragment" />
+        <argument
+            android:name="currentGoal"
+            app:argType="com.reem.goaltrackingproject.data.GoalData" />
     </fragment>
 </navigation>

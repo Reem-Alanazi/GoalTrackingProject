@@ -23,10 +23,10 @@
 
     <!-- Filter color for period -->
 
-    <color name="red">#F3584E</color>
-    <color name="yellow">#E4CB39</color>
-    <color name="blue">#4486E9</color>
-    <color name="green">#78DC64</color>
+    <color name="red">#DDD6665F</color>
+    <color name="yellow">#D3F4E23D</color>
+    <color name="blue">#A8C1E6</color>
+    <color name="green">#B797FF82</color>
 
 
 </resources>

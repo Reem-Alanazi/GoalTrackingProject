@@ -15,12 +15,17 @@ import com.reem.goaltrackingproject.viewmodel.GoalViewModel
 import com.reem.goaltrackingproject.viewmodel.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_add_goal.*
 import kotlinx.android.synthetic.main.fragment_add_goal.view.*
+import androidx.appcompat.app.AppCompatActivity
+
+
+
 
 
 class AddGoalFragment : Fragment() {
 
     private val mGoalViewModel : GoalViewModel by activityViewModels()
     private val mSharedViewModel : SharedViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +35,7 @@ class AddGoalFragment : Fragment() {
 
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_add_goal, container, false)
+
 
         //set up menu
         setHasOptionsMenu(true)

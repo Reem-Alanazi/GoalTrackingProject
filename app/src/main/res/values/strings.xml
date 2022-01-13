@@ -39,6 +39,7 @@
     <string name="save">Save</string>
     <string name="sign_out">Sign out</string>
     <string name="title_goal">Title Goal</string>
+    <string name="list_goals">List Goals</string>
 
     <string-array name="period">
         <item>Day</item>

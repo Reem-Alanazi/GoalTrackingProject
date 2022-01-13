@@ -1,10 +1,7 @@
 package com.reem.goaltrackingproject.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface GoalDao {
@@ -15,4 +12,8 @@ interface GoalDao {
        // when add same date will ignore it
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertDate(goalDate : GoalData)
+
+
+    @Update
+    suspend fun updateData(goalDate: GoalData)
 }

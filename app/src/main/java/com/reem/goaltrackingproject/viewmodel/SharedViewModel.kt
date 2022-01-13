@@ -35,10 +35,10 @@ class SharedViewModel(application: Application):AndroidViewModel(application){
         AdapterView.OnItemSelectedListener{
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             when(position){
-              0 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.red))}
-              1 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.blue))}
-              2 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.yellow))}
-              3 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.green))}
+              0 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.black))}
+              1 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.black))}
+              2 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.black))}
+              3 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.black))}
             }
         }
 
@@ -46,6 +46,16 @@ class SharedViewModel(application: Application):AndroidViewModel(application){
             TODO("Not yet implemented")
         }
 
+    }
+
+
+     fun parasPeriod(period: Period):Int{
+        return when(period){
+            Period.DAY -> 0
+            Period.WEEK -> 1
+            Period.MONTH -> 2
+            Period.YEAR -> 3
+        }
     }
 
 

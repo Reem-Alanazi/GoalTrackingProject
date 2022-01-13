@@ -28,7 +28,6 @@ class UpdateGoalFragment : Fragment() {
         // Inflate the layout for this fragment
          val view = inflater.inflate(R.layout.fragment_update_goal, container, false)
 
-        // set up
         setHasOptionsMenu(true)
 
         view.current_title_et.setText(args.currentGoal.title)
@@ -70,9 +69,6 @@ class UpdateGoalFragment : Fragment() {
         }else{
          Toast.makeText(requireContext(),"Pleas fill all field",Toast.LENGTH_SHORT)
              .show()
-
         }
     }
-
-
 }

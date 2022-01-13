@@ -5,7 +5,6 @@
     android:id="@+id/listLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context=".fragments.list.ListGoalFragment">
 
 <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
@@ -68,18 +67,56 @@
 <!--            app:layout_constraintStart_toEndOf="@+id/chip_2" />-->
 <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--    android:fitsSystemWindows="true"-->
+<!--    android:layout_height="match_parent"-->
+<!--        android:layout_width="match_parent">-->
+
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+
+<!--    android:layout_height="152dp"-->
+<!--    android:fitsSystemWindows="true"-->
+<!--        android:layout_width="match_parent">-->
+
+<!--    <com.google.android.material.appbar.CollapsingToolbarLayout-->
+
+<!--         android:fitsSystemWindows="true"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="match_parent">-->
+
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:src="@drawable/intro_image"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        android:contentDescription="@string/app_name"-->
+<!--        />-->
+
+<!--     <com.google.android.material.appbar.MaterialToolbar-->
+
+<!--        android:background="@android:color/transparent"-->
+<!--         android:layout_height="wrap_content"-->
+<!--         android:layout_width="wrap_content"/>-->
+
+<!--    </com.google.android.material.appbar.CollapsingToolbarLayout>-->
+
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="420dp"
-        android:layout_height="411dp"
+        android:layout_height="match_parent"
         android:layout_marginBottom="16dp"
         android:paddingStart="10dp"
-        android:paddingTop="8dp"
+        android:paddingTop="10dp"
+        android:layout_marginTop="6dp"
         android:paddingEnd="10dp"
-        android:paddingBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -91,7 +128,8 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/icon_add"
-        android:tint="@color/white"
+        app:tint="@color/white"
+        android:backgroundTint="@color/basic_001"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

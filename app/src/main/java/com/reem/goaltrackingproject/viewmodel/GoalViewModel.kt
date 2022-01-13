@@ -31,4 +31,10 @@ class GoalViewModel(application: Application):AndroidViewModel(application) {
             repository.insertData(goalData)
         }
     }
+
+    fun updateDate(goalData: GoalData){
+        viewModelScope.launch(Dispatchers.IO){
+           repository.updateData(goalData)
+        }
+    }
 }

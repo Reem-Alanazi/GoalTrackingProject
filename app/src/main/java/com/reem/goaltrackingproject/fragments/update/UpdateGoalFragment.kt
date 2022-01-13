@@ -1,5 +1,6 @@
 package com.reem.goaltrackingproject.fragments.update
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -44,11 +45,15 @@ class UpdateGoalFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_save){
-             updateGoal()
+        when (item.itemId){
+            R.id.menu_save -> updateGoal()
+            R.id.menu_delete -> confirmItemDelete()
         }
         return super.onOptionsItemSelected(item)
     }
+
+
+
     // update the current item goal
     private fun updateGoal() {
         val title = current_title_et.text.toString()
@@ -70,5 +75,18 @@ class UpdateGoalFragment : Fragment() {
          Toast.makeText(requireContext(),"Pleas fill all field",Toast.LENGTH_SHORT)
              .show()
         }
+    }
+
+    private fun confirmItemDelete() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes"){_,_ ->
+            mGoalViewModel.deleteItem(args.currentGoal)
+            Toast.makeText(requireContext(),"delete item successfuily",Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_updateGoalFragment_to_listGoalFragment)
+        }
+        builder.setNegativeButton("No"){_,_ -> }
+        builder.setTitle("DELETE '${args.currentGoal.title}' ?")
+        builder.setMessage("Are you sure you want remove '${args.currentGoal.title}' ?")
+        builder.create().show()
     }
 }

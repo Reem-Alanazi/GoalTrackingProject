@@ -13,4 +13,8 @@ class GoalRepository (private val goalDao: GoalDao){
     suspend fun updateData(goalData: GoalData){
         goalDao.updateData(goalData)
     }
+
+    suspend fun deleteItem(goalData: GoalData){
+        goalDao.deleteItem(goalData)
+    }
 }

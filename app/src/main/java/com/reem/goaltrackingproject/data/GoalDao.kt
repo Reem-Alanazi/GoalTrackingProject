@@ -16,4 +16,7 @@ interface GoalDao {
 
     @Update
     suspend fun updateData(goalDate: GoalData)
+
+    @Delete
+    suspend fun deleteItem(goalDate: GoalData)
 }

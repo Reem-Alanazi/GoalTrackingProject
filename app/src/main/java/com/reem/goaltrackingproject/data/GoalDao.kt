@@ -19,4 +19,8 @@ interface GoalDao {
 
     @Delete
     suspend fun deleteItem(goalDate: GoalData)
+
+    // custom query for delete all data on my database
+    @Query("DELETE FROM goal_table")
+    suspend fun deleteAll()
 }

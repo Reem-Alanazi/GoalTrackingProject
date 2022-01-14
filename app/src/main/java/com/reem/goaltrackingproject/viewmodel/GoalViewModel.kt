@@ -39,8 +39,15 @@ class GoalViewModel(application: Application):AndroidViewModel(application) {
     }
 
     fun deleteItem(goalData: GoalData) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO){
             repository.deleteItem(goalData)
+        }
+    }
+
+    fun deleteAll(){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.deleteAll()
+
         }
     }
 }

@@ -81,11 +81,11 @@ class UpdateGoalFragment : Fragment() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes"){_,_ ->
             mGoalViewModel.deleteItem(args.currentGoal)
-            Toast.makeText(requireContext(),"delete item successfully",Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),"Successfully Removed '${args.currentGoal.title}'",Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateGoalFragment_to_listGoalFragment)
         }
         builder.setNegativeButton("No"){_,_ -> }
-        builder.setTitle("DELETE '${args.currentGoal.title}' ?")
+        builder.setTitle("Delete'${args.currentGoal.title}' ?")
         builder.setMessage("Are you sure you want remove '${args.currentGoal.title}' ?")
         builder.create().show()
     }

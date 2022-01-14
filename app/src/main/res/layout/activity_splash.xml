@@ -9,16 +9,16 @@
     tools:context=".activities.SplashActivity">
 
 
-   <TextView
+    <TextView
         android:id="@+id/splash_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
+        android:fontFamily="sans-serif-smallcaps"
         android:gravity="center"
         android:text="@string/app_name"
         android:textColor="@color/white"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="@dimen/splash_screen_title_text_size"/>
+        android:textSize="@dimen/splash_screen_title_text_size"
+        android:textStyle="bold" />
 
 
  </RelativeLayout>

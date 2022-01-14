@@ -1,7 +1,9 @@
 package com.reem.goaltrackingproject.fragments.list
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -54,4 +56,25 @@ class ListGoalFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_delete_all){
+            confirmDeleteAllItem()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+     // show Dialog
+    private fun confirmDeleteAllItem() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes"){_,_ ->
+            mGoalViewModel.deleteAll()
+            Toast.makeText(requireContext(),"delete item successfully", Toast.LENGTH_SHORT)
+                .show()
+        }
+        builder.setNegativeButton("No"){_,_ -> }
+        builder.setTitle("Delete All?")
+        builder.setMessage("Are you sure you want to remove all goals ?")
+        builder.create().show()
+    }
+
 }
+

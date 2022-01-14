@@ -25,7 +25,7 @@ class GoalViewModel(application: Application):AndroidViewModel(application) {
         getAllData=repository.getAllData
     }
 
-    // run this fun in background thread
+    // run of  this fun in background thread
     fun insertData(goalData: GoalData){
         viewModelScope.launch(Dispatchers.IO){
             repository.insertData(goalData)
@@ -35,6 +35,19 @@ class GoalViewModel(application: Application):AndroidViewModel(application) {
     fun updateDate(goalData: GoalData){
         viewModelScope.launch(Dispatchers.IO){
            repository.updateData(goalData)
+        }
+    }
+
+    fun deleteItem(goalData: GoalData) {
+        viewModelScope.launch(Dispatchers.IO){
+            repository.deleteItem(goalData)
+        }
+    }
+
+    fun deleteAll(){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.deleteAll()
+
         }
     }
 }

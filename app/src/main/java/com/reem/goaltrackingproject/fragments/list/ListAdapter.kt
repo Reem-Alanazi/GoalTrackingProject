@@ -1,5 +1,6 @@
 package com.reem.goaltrackingproject.fragments.list
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,9 +16,7 @@ class ListAdapter :RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
 
     var goalDataList = emptyList<GoalData>()
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-
-    }
+    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.goal_item , parent , false)
@@ -45,7 +44,7 @@ class ListAdapter :RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
             Period.MONTH -> holder.itemView.period_filter_card.setCardBackgroundColor(
                 ContextCompat.getColor(holder.itemView.context,
                     R.color.yellow))
-            Period.YEAR  -> holder.itemView.period_filter_card.setCardBackgroundColor(
+            Period.YEAR -> holder.itemView.period_filter_card.setCardBackgroundColor(
                 ContextCompat.getColor(holder.itemView.context,
                     R.color.green))
 
@@ -54,6 +53,7 @@ class ListAdapter :RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
 
     override fun getItemCount(): Int = goalDataList.size
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setGoalData(goalData: List<GoalData>){
         this.goalDataList = goalData
         notifyDataSetChanged()

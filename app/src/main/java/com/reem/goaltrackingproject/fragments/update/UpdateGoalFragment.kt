@@ -33,7 +33,7 @@ class UpdateGoalFragment : Fragment() {
 
         view.current_title_et.setText(args.currentGoal.title)
         view.current_description_et.setText(args.currentGoal.description)
-        view.current_description_et.setSelection(mSharedViewModel.parasPeriod(args.currentGoal.period))
+        view.current_spinner.setSelection(mSharedViewModel.convertPeriodToInt(args.currentGoal.period))
         view.current_spinner.onItemSelectedListener = mSharedViewModel.listener
 
         return view
@@ -72,7 +72,7 @@ class UpdateGoalFragment : Fragment() {
                 .show()
             findNavController().navigate(R.id.action_updateGoalFragment_to_listGoalFragment)
         }else{
-         Toast.makeText(requireContext(),"Pleas fill all field",Toast.LENGTH_SHORT)
+         Toast.makeText(requireContext(),"Please fill all field",Toast.LENGTH_SHORT)
              .show()
         }
     }
@@ -89,4 +89,5 @@ class UpdateGoalFragment : Fragment() {
         builder.setMessage("Are you sure you want remove '${args.currentGoal.title}' ?")
         builder.create().show()
     }
+
 }

@@ -13,16 +13,12 @@ import com.reem.goaltrackingproject.R
 import com.reem.goaltrackingproject.viewmodel.GoalViewModel
 import kotlinx.android.synthetic.main.fragment_list_goal.view.*
 import androidx.appcompat.app.AppCompatActivity
-
-
-
-
+import com.reem.goaltrackingproject.viewmodel.SharedViewModel
 
 class ListGoalFragment : Fragment() {
 
-
     private val mGoalViewModel : GoalViewModel by viewModels()
-
+    private val mSharedViewModel : SharedViewModel by viewModels()
     private val adapter : ListAdapter by lazy { ListAdapter()}
 
     override fun onCreateView(
@@ -37,8 +33,13 @@ class ListGoalFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
 
         mGoalViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
+            mSharedViewModel.checkIfDatabaseEmpty(data)
             adapter.setGoalData(data)
 
+        })
+
+        mSharedViewModel.emptyDatabase.observe(viewLifecycleOwner, Observer {
+            showEmptyImageDatabase(it)
         })
 
 
@@ -49,6 +50,16 @@ class ListGoalFragment : Fragment() {
 
         setHasOptionsMenu(true)
         return view
+    }
+
+    private fun showEmptyImageDatabase(emptyDatabase : Boolean) {
+      if(emptyDatabase){
+          view?.no_data_imageView?.visibility = View.VISIBLE
+          view?.no_data_textView?.visibility = View.VISIBLE
+      }else{
+          view?.no_data_imageView?.visibility = View.INVISIBLE
+          view?.no_data_textView?.visibility = View.INVISIBLE
+      }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -67,12 +78,12 @@ class ListGoalFragment : Fragment() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes"){_,_ ->
             mGoalViewModel.deleteAll()
-            Toast.makeText(requireContext(),"delete item successfully", Toast.LENGTH_SHORT)
+            Toast.makeText(requireContext(),"Successfully Removed All Goals", Toast.LENGTH_SHORT)
                 .show()
         }
         builder.setNegativeButton("No"){_,_ -> }
         builder.setTitle("Delete All?")
-        builder.setMessage("Are you sure you want to remove all goals ?")
+        builder.setMessage("Are you sure you want to remove all goals?")
         builder.create().show()
     }
 

@@ -93,5 +93,10 @@ class ListGoalFragment : Fragment() {
         builder.create().show()
     }
 
+    // for avoid memory leaks
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
 

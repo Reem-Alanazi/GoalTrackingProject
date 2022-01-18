@@ -13,6 +13,7 @@ import com.reem.goaltrackingproject.R
 import com.reem.goaltrackingproject.viewmodel.GoalViewModel
 import kotlinx.android.synthetic.main.fragment_list_goal.view.*
 import androidx.appcompat.app.AppCompatActivity
+import com.reem.goaltrackingproject.databinding.FragmentListGoalBinding
 import com.reem.goaltrackingproject.viewmodel.SharedViewModel
 
 class ListGoalFragment : Fragment() {
@@ -20,47 +21,42 @@ class ListGoalFragment : Fragment() {
     private val mGoalViewModel : GoalViewModel by viewModels()
     private val mSharedViewModel : SharedViewModel by viewModels()
     private val adapter : ListAdapter by lazy { ListAdapter()}
+    private var _binding : FragmentListGoalBinding? = null
+    private val binding get()= _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_list_goal, container, false)
 
-        val recyclerView = view.recyclerView
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        // Data binding
+        _binding = FragmentListGoalBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
+        binding.mSharedViewModel = mSharedViewModel
 
+
+        // Set up recyclerview
+        setUpRecyclerview()
+
+        // Observer LiveData
         mGoalViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
             mSharedViewModel.checkIfDatabaseEmpty(data)
             adapter.setGoalData(data)
-
-        })
-
-        mSharedViewModel.emptyDatabase.observe(viewLifecycleOwner, Observer {
-            showEmptyImageDatabase(it)
         })
 
 
-        view.floatingActionButton.setOnClickListener {
-         findNavController().navigate(R.id.action_listGoalFragment_to_addGoalFragment)
-        }
-
-
+        // Set up menu
         setHasOptionsMenu(true)
-        return view
+        return binding.root
     }
 
-    private fun showEmptyImageDatabase(emptyDatabase : Boolean) {
-      if(emptyDatabase){
-          view?.no_data_imageView?.visibility = View.VISIBLE
-          view?.no_data_textView?.visibility = View.VISIBLE
-      }else{
-          view?.no_data_imageView?.visibility = View.INVISIBLE
-          view?.no_data_textView?.visibility = View.INVISIBLE
-      }
+    private fun setUpRecyclerview() {
+        val recyclerView = binding.recyclerView
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.list_goal_fragment_menu, menu)
@@ -73,6 +69,7 @@ class ListGoalFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
+
      // show Dialog
     private fun confirmDeleteAllItem() {
         val builder = AlertDialog.Builder(requireContext())
@@ -81,11 +78,17 @@ class ListGoalFragment : Fragment() {
             Toast.makeText(requireContext(),"Successfully Removed All Goals", Toast.LENGTH_SHORT)
                 .show()
         }
+
         builder.setNegativeButton("No"){_,_ -> }
         builder.setTitle("Delete All?")
         builder.setMessage("Are you sure you want to remove all goals?")
         builder.create().show()
     }
 
+     // for avoid memory leaks
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
 

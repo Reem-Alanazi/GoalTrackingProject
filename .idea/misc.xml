@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable-v24/button_shape_rounded_white.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_back.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/intro_image.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_view.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/custom_input.xml" value="0.10462962962962963" />
         <entry key="app/src/main/res/drawable/icon_add.xml" value="0.20555555555555555" />
         <entry key="app/src/main/res/drawable/icon_check.xml" value="0.1" />
@@ -17,13 +18,13 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.37523771829103286" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.23072916666666668" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.23072916666666668" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/dialog_progress.xml" value="0.23072916666666668" />
-        <entry key="app/src/main/res/layout/fragment_add_goal.xml" value="0.1994219653179191" />
-        <entry key="app/src/main/res/layout/fragment_list_goal.xml" value="0.5499272650396655" />
+        <entry key="app/src/main/res/layout/fragment_add_goal.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_list_goal.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_update_goal.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/goal_item.xml" value="0.18050541516245489" />
+        <entry key="app/src/main/res/layout/goal_item.xml" value="0.335" />
         <entry key="app/src/main/res/menu/add_goal_fragment_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/list_goal_fragment_menu.xml" value="0.22314814814814815" />
         <entry key="app/src/main/res/menu/update_goal_fragment_menu.xml" value="0.23425925925925925" />

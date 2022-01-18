@@ -20,7 +20,7 @@ class SharedViewModel(application: Application):AndroidViewModel(application){
         emptyDatabase.value = goalData.isEmpty()
     }
 
-    // if null or not
+       // if null or not
      fun verifyDataFromUser(title: String, description : String ): Boolean{
         return if(TextUtils.isEmpty(title)|| TextUtils.isEmpty(description)){
             false

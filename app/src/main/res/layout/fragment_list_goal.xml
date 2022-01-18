@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="mSharedViewModel"
+            type="com.reem.goaltrackingproject.viewmodel.SharedViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -72,6 +74,7 @@
                 android:alpha="0.5"
                 android:src="@drawable/icon_no_data_found"
                 android:visibility="invisible"
+                android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
@@ -89,6 +92,7 @@
                 android:textColor="#6FC4FB"
                 android:textSize="16sp"
                 android:visibility="invisible"
+                android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"

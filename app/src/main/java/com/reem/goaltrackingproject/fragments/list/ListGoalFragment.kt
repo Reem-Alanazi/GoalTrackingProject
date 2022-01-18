@@ -32,23 +32,21 @@ class ListGoalFragment : Fragment() {
 
         // Data binding
         _binding = FragmentListGoalBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
+        binding.mSharedViewModel = mSharedViewModel
 
-        // set up recyclerview
+
+        // Set up recyclerview
         setUpRecyclerview()
 
         // Observer LiveData
         mGoalViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
             mSharedViewModel.checkIfDatabaseEmpty(data)
             adapter.setGoalData(data)
-
-        })
-
-        mSharedViewModel.emptyDatabase.observe(viewLifecycleOwner, Observer {
-            showEmptyImageDatabase(it)
         })
 
 
-
+        // Set up menu
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -56,17 +54,9 @@ class ListGoalFragment : Fragment() {
     private fun setUpRecyclerview() {
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireActivity())    }
-
-    private fun showEmptyImageDatabase(emptyDatabase : Boolean) {
-      if(emptyDatabase){
-          view?.no_data_imageView?.visibility = View.VISIBLE
-          view?.no_data_textView?.visibility = View.VISIBLE
-      }else{
-          view?.no_data_imageView?.visibility = View.INVISIBLE
-          view?.no_data_textView?.visibility = View.INVISIBLE
-      }
+        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.list_goal_fragment_menu, menu)
@@ -79,6 +69,7 @@ class ListGoalFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
+
      // show Dialog
     private fun confirmDeleteAllItem() {
         val builder = AlertDialog.Builder(requireContext())
@@ -87,13 +78,14 @@ class ListGoalFragment : Fragment() {
             Toast.makeText(requireContext(),"Successfully Removed All Goals", Toast.LENGTH_SHORT)
                 .show()
         }
+
         builder.setNegativeButton("No"){_,_ -> }
         builder.setTitle("Delete All?")
         builder.setMessage("Are you sure you want to remove all goals?")
         builder.create().show()
     }
 
-    // for avoid memory leaks
+     // for avoid memory leaks
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

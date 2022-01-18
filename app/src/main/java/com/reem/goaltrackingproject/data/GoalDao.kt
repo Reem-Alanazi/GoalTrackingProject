@@ -20,7 +20,13 @@ interface GoalDao {
     @Delete
     suspend fun deleteItem(goalDate: GoalData)
 
-    // custom query for delete all data on my database
+    //Custom query for delete all data on my database
     @Query("DELETE FROM goal_table")
     suspend fun deleteAll()
+
+    //The LIKE command is used in a WHERE clause to search for a specified pattern in a column.
+    @Query("SELECT * FROM goal_table WHERE title LIKE :searchQuery")
+    fun searchInDatabase(searchQuery: String):LiveData<List<GoalData>>
+
+
 }

@@ -3,6 +3,7 @@ package com.reem.goaltrackingproject.fragments.list
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -23,7 +24,7 @@ import jp.wasabeef.recyclerview.animators.LandingAnimator
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import java.text.FieldPosition
 
-class ListGoalFragment : Fragment() {
+class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
 
     private val mGoalViewModel : GoalViewModel by viewModels()
     private val mSharedViewModel : SharedViewModel by viewModels()
@@ -101,10 +102,13 @@ class ListGoalFragment : Fragment() {
         snackBar.show()
     }
 
-
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.list_goal_fragment_menu, menu)
+        val search = menu.findItem(R.id.menu_search)
+        val searchView = search.actionView as? SearchView
+        searchView?.isSubmitButtonEnabled = true
+        searchView?.setOnQueryTextListener(this)
+
         super.onCreateOptionsMenu(menu, inflater)
     }
 
@@ -115,7 +119,32 @@ class ListGoalFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-     // show Dialog
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if(query!=null){
+            searchInGoalDatabase(query)
+        }
+
+        return true
+    }
+
+    override fun onQueryTextChange(query: String): Boolean {
+        searchInGoalDatabase(query)
+
+        return true
+    }
+
+    private fun searchInGoalDatabase(goal: String) {
+        // %$searchQuery% Finds any values that have same "searchQuery" in any position
+        val searchQuery= "%$goal%"
+
+        mGoalViewModel.searchDatabase(searchQuery).observe(this, Observer { list ->
+           list?.let {
+              adapter.setGoalData(it)
+           }
+        })
+    }
+
+    // show Dialog to confirm Delete All Item
     private fun confirmDeleteAllItem() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes"){_,_ ->
@@ -135,5 +164,7 @@ class ListGoalFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
 

@@ -19,6 +19,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.reem.goaltrackingproject.data.GoalData
 import com.reem.goaltrackingproject.databinding.FragmentListGoalBinding
 import com.reem.goaltrackingproject.viewmodel.SharedViewModel
+import jp.wasabeef.recyclerview.animators.LandingAnimator
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import java.text.FieldPosition
 
 class ListGoalFragment : Fragment() {
@@ -60,7 +62,10 @@ class ListGoalFragment : Fragment() {
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
-
+        // Animation RecycleView
+        recyclerView.itemAnimator = LandingAnimator().apply {
+            addDuration = 300
+        }
 
         // swipe to delete
         swipeToDelete(recyclerView)

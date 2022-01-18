@@ -15,8 +15,11 @@ import kotlinx.android.synthetic.main.fragment_list_goal.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
+import com.reem.goaltrackingproject.data.GoalData
 import com.reem.goaltrackingproject.databinding.FragmentListGoalBinding
 import com.reem.goaltrackingproject.viewmodel.SharedViewModel
+import java.text.FieldPosition
 
 class ListGoalFragment : Fragment() {
 
@@ -68,14 +71,31 @@ class ListGoalFragment : Fragment() {
     private fun swipeToDelete(recyclerView: RecyclerView){
         val swipeToDeleteCallback = object : SwipeToDelete(){
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val itemToDelete = adapter.goalDataList[viewHolder.adapterPosition]
-                mGoalViewModel.deleteItem(itemToDelete)
-                Toast.makeText(requireContext(),"Successfully removed '${itemToDelete.title}'",
-                    Toast.LENGTH_SHORT).show()
+                val deletedItem = adapter.goalDataList[viewHolder.adapterPosition]
+                // Deleted Item
+                mGoalViewModel.deleteItem(deletedItem)
+                adapter.notifyItemRemoved(viewHolder.adapterPosition)
+//                Toast.makeText(requireContext(),"Successfully removed '${deletedItem.title}'",
+//                    Toast.LENGTH_SHORT).show()
+
+                // Restore Deleted Item
+                restoreDeletedGoal(viewHolder.itemView,deletedItem,viewHolder.adapterPosition)
             }
         }
         val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
         itemTouchHelper.attachToRecyclerView(recyclerView)
+    }
+
+    private fun restoreDeletedGoal(view: View, deletedItem: GoalData, position: Int){
+        val snackBar = Snackbar.make(
+            view,"Deleted '${deletedItem.title}",
+            Snackbar.LENGTH_LONG
+        )
+        snackBar.setAction("Undo"){
+            mGoalViewModel.insertData(deletedItem)
+            adapter.notifyItemChanged(position)
+        }
+        snackBar.show()
     }
 
 

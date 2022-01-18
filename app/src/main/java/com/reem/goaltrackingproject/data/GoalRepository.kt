@@ -21,4 +21,8 @@ class GoalRepository (private val goalDao: GoalDao){
     suspend fun deleteAll(){
         goalDao.deleteAll()
     }
+
+    fun searchDatabase(goalSearchQuery: String): LiveData<List<GoalData>>{
+      return goalDao.searchInDatabase(goalSearchQuery)
+    }
 }

@@ -13,6 +13,7 @@ import com.reem.goaltrackingproject.R
 import com.reem.goaltrackingproject.viewmodel.GoalViewModel
 import kotlinx.android.synthetic.main.fragment_list_goal.view.*
 import androidx.appcompat.app.AppCompatActivity
+import com.reem.goaltrackingproject.databinding.FragmentListGoalBinding
 import com.reem.goaltrackingproject.viewmodel.SharedViewModel
 
 class ListGoalFragment : Fragment() {
@@ -20,18 +21,22 @@ class ListGoalFragment : Fragment() {
     private val mGoalViewModel : GoalViewModel by viewModels()
     private val mSharedViewModel : SharedViewModel by viewModels()
     private val adapter : ListAdapter by lazy { ListAdapter()}
+    private var _binding : FragmentListGoalBinding? = null
+    private val binding get()= _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_list_goal, container, false)
 
-        val recyclerView = view.recyclerView
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        // Data binding
+        _binding = FragmentListGoalBinding.inflate(inflater, container, false)
 
+        // set up recyclerview
+        setUpRecyclerview()
+
+        // Observer LiveData
         mGoalViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
             mSharedViewModel.checkIfDatabaseEmpty(data)
             adapter.setGoalData(data)
@@ -43,14 +48,15 @@ class ListGoalFragment : Fragment() {
         })
 
 
-        view.floatingActionButton.setOnClickListener {
-         findNavController().navigate(R.id.action_listGoalFragment_to_addGoalFragment)
-        }
-
 
         setHasOptionsMenu(true)
-        return view
+        return binding.root
     }
+
+    private fun setUpRecyclerview() {
+        val recyclerView = binding.recyclerView
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireActivity())    }
 
     private fun showEmptyImageDatabase(emptyDatabase : Boolean) {
       if(emptyDatabase){

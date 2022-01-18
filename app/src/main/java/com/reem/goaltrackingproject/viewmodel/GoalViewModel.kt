@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import androidx.room.Query
+import com.airbnb.lottie.L
 import com.reem.goaltrackingproject.data.GoalData
 import com.reem.goaltrackingproject.data.GoalLocalDatabase
 import com.reem.goaltrackingproject.data.GoalRepository
@@ -49,5 +51,9 @@ class GoalViewModel(application: Application):AndroidViewModel(application) {
             repository.deleteAll()
 
         }
+    }
+
+    fun searchDatabase(searchQuery: String): LiveData<List<GoalData>>{
+        return repository.searchDatabase(searchQuery)
     }
 }

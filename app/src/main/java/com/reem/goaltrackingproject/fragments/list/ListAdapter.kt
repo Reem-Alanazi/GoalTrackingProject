@@ -10,7 +10,7 @@ import com.reem.goaltrackingproject.databinding.GoalItemBinding
 
 class ListAdapter :RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
 
-    private var goalDataList = emptyList<GoalData>()
+     var goalDataList = emptyList<GoalData>()
 
     class MyViewHolder(private val binding: GoalItemBinding): RecyclerView.ViewHolder(binding.root){
 
@@ -38,7 +38,6 @@ class ListAdapter :RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
     }
 
     override fun getItemCount(): Int = goalDataList.size
-
     @SuppressLint("NotifyDataSetChanged")
     fun setGoalData(goalData: List<GoalData>){
         this.goalDataList = goalData

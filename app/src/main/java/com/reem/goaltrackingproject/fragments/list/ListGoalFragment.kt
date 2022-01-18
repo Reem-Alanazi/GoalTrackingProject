@@ -13,6 +13,8 @@ import com.reem.goaltrackingproject.R
 import com.reem.goaltrackingproject.viewmodel.GoalViewModel
 import kotlinx.android.synthetic.main.fragment_list_goal.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.reem.goaltrackingproject.databinding.FragmentListGoalBinding
 import com.reem.goaltrackingproject.viewmodel.SharedViewModel
 
@@ -55,7 +57,27 @@ class ListGoalFragment : Fragment() {
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
+
+
+        // swipe to delete
+        swipeToDelete(recyclerView)
+
+
     }
+
+    private fun swipeToDelete(recyclerView: RecyclerView){
+        val swipeToDeleteCallback = object : SwipeToDelete(){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val itemToDelete = adapter.goalDataList[viewHolder.adapterPosition]
+                mGoalViewModel.deleteItem(itemToDelete)
+                Toast.makeText(requireContext(),"Successfully removed '${itemToDelete.title}'",
+                    Toast.LENGTH_SHORT).show()
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+    }
+
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

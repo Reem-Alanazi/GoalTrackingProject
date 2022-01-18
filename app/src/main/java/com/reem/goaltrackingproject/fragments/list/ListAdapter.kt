@@ -12,7 +12,7 @@ import com.reem.goaltrackingproject.databinding.GoalItemBinding
 
 class ListAdapter :RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
 
-     var goalDataList = emptyList<GoalData>()
+    var goalDataList = emptyList<GoalData>()
 
     class MyViewHolder(private val binding: GoalItemBinding): RecyclerView.ViewHolder(binding.root){
 
@@ -22,16 +22,16 @@ class ListAdapter :RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
         }
 
         companion object {
-           fun from(parent: ViewGroup): MyViewHolder{
-               val layoutInflater = LayoutInflater.from(parent.context)
-               val binding = GoalItemBinding.inflate(layoutInflater,parent,false)
-               return MyViewHolder(binding)
-           }
+            fun from(parent: ViewGroup): MyViewHolder{
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = GoalItemBinding.inflate(layoutInflater,parent,false)
+                return MyViewHolder(binding)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-       return MyViewHolder.from(parent)
+        return MyViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

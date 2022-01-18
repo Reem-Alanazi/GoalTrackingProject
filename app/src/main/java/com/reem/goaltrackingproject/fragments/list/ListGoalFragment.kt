@@ -75,8 +75,6 @@ class ListGoalFragment : Fragment() {
                 // Deleted Item
                 mGoalViewModel.deleteItem(deletedItem)
                 adapter.notifyItemRemoved(viewHolder.adapterPosition)
-//                Toast.makeText(requireContext(),"Successfully removed '${deletedItem.title}'",
-//                    Toast.LENGTH_SHORT).show()
 
                 // Restore Deleted Item
                 restoreDeletedGoal(viewHolder.itemView,deletedItem,viewHolder.adapterPosition)

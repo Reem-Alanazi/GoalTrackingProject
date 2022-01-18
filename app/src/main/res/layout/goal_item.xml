@@ -1,69 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingStart="12dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginEnd="30dp"
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="goalItemData"
+            type="com.reem.goaltrackingproject.data.GoalData" />
+
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/item_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/item_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:paddingStart="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp">
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/period_filter_card"
-            android:layout_width="4dp"
-            android:layout_height="65dp"
-            android:layout_marginEnd="4dp"
-            android:outlineAmbientShadowColor="@color/black"
-            android:outlineSpotShadowColor="@color/black"
-            app:cardBackgroundColor="@color/blue"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_background"
+            android:sendDataToUpdateFragment="@{goalItemData}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/title_goal_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:maxLength="20"
-            android:textColor="@color/primary_text_color"
-            android:text="@string/title_goal"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/description_goal_text"
-            android:layout_width="277dp"
-            android:layout_height="22dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="Descri ption Goal Text"
-            android:maxLength="200"
-            android:maxLines="2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/period_filter_card"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/title_goal_text"
-            app:layout_constraintTop_toBottomOf="@+id/title_goal_text"
-            app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/period_filter_card"
+                android:layout_width="4dp"
+                android:layout_height="65dp"
+                android:layout_marginEnd="4dp"
+                app:cardBackgroundColor="@color/blue"
+                android:parsePeriodColor="@{goalItemData.period}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title_goal_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:maxLength="20"
+                android:textColor="@color/primary_text_color"
+                android:text="@{goalItemData.title}"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/description_goal_text"
+                android:layout_width="277dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@{goalItemData.description}"
+                android:maxLength="200"
+                android:maxLines="2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/period_filter_card"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/title_goal_text"
+                app:layout_constraintTop_toBottomOf="@+id/title_goal_text"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

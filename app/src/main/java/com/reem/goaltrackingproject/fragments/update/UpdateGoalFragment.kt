@@ -15,6 +15,7 @@ import com.reem.goaltrackingproject.viewmodel.GoalViewModel
 import com.reem.goaltrackingproject.viewmodel.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_update_goal.*
 import kotlinx.android.synthetic.main.fragment_update_goal.view.*
+import kotlinx.android.synthetic.main.goal_item.view.*
 
 class UpdateGoalFragment : Fragment() {
      // auto generate by save args
@@ -28,6 +29,10 @@ class UpdateGoalFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
          val view = inflater.inflate(R.layout.fragment_update_goal, container, false)
+
+//        view.item_background.setOnClickListener {
+//            findNavController().navigate(R.id.action_listGoalFragment_to_updateGoalFragment)
+//        }
 
         setHasOptionsMenu(true)
 

@@ -22,9 +22,19 @@ class GoalViewModel(application: Application):AndroidViewModel(application) {
        // this val will holds live data object
      val getAllData:LiveData<List<GoalData>>
 
+    val sortByDay:  LiveData<List<GoalData>>
+    val sortByWeek: LiveData<List<GoalData>>
+    val sortByMonth: LiveData<List<GoalData>>
+    val sortByYear: LiveData<List<GoalData>>
+
     init {
         repository = GoalRepository(goalDao)
-        getAllData=repository.getAllData
+        getAllData = repository.getAllData
+        sortByDay  = repository.sortByDay
+        sortByWeek = repository.sortByWeek
+        sortByMonth = repository.sortByMonth
+        sortByYear = repository.sortByYear
+
     }
 
     // run of  this fun in background thread

@@ -8,6 +8,7 @@ class GoalRepository (private val goalDao: GoalDao){
     val sortByDay:  LiveData<List<GoalData>> = goalDao.sortByDayPeriod()
     val sortByWeek: LiveData<List<GoalData>> = goalDao.sortByWeekPeriod()
     val sortByMonth: LiveData<List<GoalData>> = goalDao.sortByMonthPeriod()
+    val sortByYear: LiveData<List<GoalData>> = goalDao.sortByYearPeriod()
 
 
     suspend fun insertData(goalData : GoalData){

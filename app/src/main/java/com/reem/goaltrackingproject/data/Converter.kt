@@ -4,7 +4,6 @@ import androidx.room.TypeConverter
 
 class Converter {
 
-
     @TypeConverter
     fun fromPeriod(period: Period): String {
         return period.name

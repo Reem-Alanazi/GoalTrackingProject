@@ -28,14 +28,17 @@ interface GoalDao {
     @Query("SELECT * FROM goal_table WHERE title LIKE :searchQuery")
     fun searchInDatabase(searchQuery: String):LiveData<List<GoalData>>
 
-    @Query("SELECT * FROM goal_table ORDER BY CASE WHEN period LIKE 'D%' THEN 1 END")
+    @Query("SELECT * FROM goal_table ORDER BY CASE WHEN period LIKE 'D%' THEN 1 WHEN period Like '%W' THEN 2 WHEN period LIKE '%M' THEN 3 WHEN period LIKE '%Y' THEN 4 END")
     fun sortByDayPeriod(): LiveData<List<GoalData>>
 
-    @Query("SELECT * FROM goal_table ORDER BY CASE WHEN period LIKE 'W%' THEN 1 END")
+    @Query("SELECT * FROM goal_table ORDER BY CASE WHEN period LIKE 'W%' THEN 1 WHEN period Like '%D' THEN 2 WHEN period LIKE '%M' THEN 3 WHEN period LIKE '%Y' THEN 4 END")
     fun sortByWeekPeriod(): LiveData<List<GoalData>>
 
-    @Query("SELECT * FROM goal_table ORDER BY CASE WHEN period LIKE 'M%' THEN 1 END")
+    @Query("SELECT * FROM goal_table ORDER BY CASE WHEN period LIKE 'M%' THEN 1 WHEN period Like '%D' THEN 2 WHEN period LIKE '%W' THEN 3 WHEN period LIKE '%Y' THEN 4 END")
     fun sortByMonthPeriod(): LiveData<List<GoalData>>
+
+    @Query("SELECT * FROM goal_table ORDER BY CASE WHEN period LIKE 'Y%' THEN 1 WHEN period Like '%D' THEN 2 WHEN period LIKE '%W' THEN 3 WHEN period LIKE '%M' THEN 4 END")
+    fun sortByYearPeriod(): LiveData<List<GoalData>>
 
 
 }

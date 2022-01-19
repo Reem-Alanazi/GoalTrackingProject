@@ -48,9 +48,10 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
         setUpRecyclerview()
 
         // Observer LiveData
-        mGoalViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
-            mSharedViewModel.checkIfDatabaseEmpty(data)
-            adapter.setGoalData(data)
+         mGoalViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
+         mSharedViewModel.checkIfDatabaseEmpty(data)
+         adapter.setGoalData(data)
+
         })
 
 
@@ -113,8 +114,13 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_delete_all){
-            confirmDeleteAllItem()
+        when (item.itemId){
+            R.id.menu_delete_all -> confirmDeleteAllItem()
+            R.id.menu_Day -> mGoalViewModel.sortByDay.observe(this, Observer {adapter.setGoalData(it)})
+            R.id.menu_week -> mGoalViewModel.sortByWeek.observe(this, Observer {adapter.setGoalData(it)})
+            R.id.menu_month -> mGoalViewModel.sortByMonth.observe(this, Observer {adapter.setGoalData(it)})
+            R.id.menu_year -> mGoalViewModel.sortByYear.observe(this, Observer {adapter.setGoalData(it)})
+            //  else ->
         }
         return super.onOptionsItemSelected(item)
     }
@@ -138,9 +144,9 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
         val searchQuery= "%$goal%"
 
         mGoalViewModel.searchDatabase(searchQuery).observe(this, Observer { list ->
-           list?.let {
-              adapter.setGoalData(it)
-           }
+            list?.let {
+                adapter.setGoalData(it)
+            }
         })
     }
 
@@ -159,7 +165,7 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
         builder.create().show()
     }
 
-     // for avoid memory leaks
+    // for avoid memory leaks
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

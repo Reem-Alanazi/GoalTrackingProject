@@ -25,7 +25,7 @@ class GoalDiffUtil
         return oldGoalList[oldItemPosition].id == newGoalList[newItemPosition].id
          &&  oldGoalList[oldItemPosition].title == newGoalList[newItemPosition].title
          &&  oldGoalList[oldItemPosition].period == newGoalList[newItemPosition].period
-     &&  oldGoalList[oldItemPosition].description == newGoalList[newItemPosition].description
+     && oldGoalList[oldItemPosition].description == newGoalList[newItemPosition].description
 
 
 

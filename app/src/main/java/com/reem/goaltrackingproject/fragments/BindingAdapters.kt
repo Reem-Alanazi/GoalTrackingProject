@@ -43,7 +43,6 @@ class BindingAdapters  {
             Period.WEEK  -> {cardView.setCardBackgroundColor(cardView.context.getColor(R.color.blue))}
             Period.MONTH -> {cardView.setCardBackgroundColor(cardView.context.getColor(R.color.yellow))}
             Period.YEAR  -> {cardView.setCardBackgroundColor(cardView.context.getColor(R.color.green))}
-
             }
         }
 
@@ -55,7 +54,6 @@ class BindingAdapters  {
                 view.findNavController().navigate(action)
             }
         }
-
     }
 
 }

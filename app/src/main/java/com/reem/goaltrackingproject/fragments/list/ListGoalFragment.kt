@@ -8,21 +8,18 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reem.goaltrackingproject.R
 import com.reem.goaltrackingproject.viewmodel.GoalViewModel
-import kotlinx.android.synthetic.main.fragment_list_goal.view.*
-import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.reem.goaltrackingproject.CustomCountDownTimer
 import com.reem.goaltrackingproject.data.GoalData
 import com.reem.goaltrackingproject.databinding.FragmentListGoalBinding
 import com.reem.goaltrackingproject.viewmodel.SharedViewModel
 import jp.wasabeef.recyclerview.animators.LandingAnimator
-import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
-import java.text.FieldPosition
 
 class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
 
@@ -31,6 +28,9 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
     private val adapter : ListAdapter by lazy { ListAdapter()}
     private var _binding : FragmentListGoalBinding? = null
     private val binding get()= _binding!!
+
+    val liveData: MutableLiveData<String> = MutableLiveData()
+    val customCountDownTimer = CustomCountDownTimer(liveData)
 
 
     override fun onCreateView(
@@ -43,7 +43,6 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
         binding.lifecycleOwner = this
         binding.mSharedViewModel = mSharedViewModel
 
-
         // Set up recyclerview
         setUpRecyclerview()
 
@@ -53,6 +52,16 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
          adapter.setGoalData(data)
 
         })
+
+
+        // TODO : CountDown Fun
+
+//        customCountDownTimer.start(1631638786) //Epoch timestamp
+//        customCountDownTimer.mutableLiveData.observe(viewLifecycleOwner, Observer { counterState ->
+//            counterState?.let {
+//                println(counterState)
+//            }
+//        })
 
 
         // Set up menu
@@ -71,8 +80,6 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
 
         // swipe to delete
         swipeToDelete(recyclerView)
-
-
     }
 
     private fun swipeToDelete(recyclerView: RecyclerView){
@@ -116,11 +123,11 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
             R.id.menu_delete_all -> confirmDeleteAllItem()
-            R.id.menu_Day -> mGoalViewModel.sortByDay.observe(this, Observer {adapter.setGoalData(it)})
-            R.id.menu_week -> mGoalViewModel.sortByWeek.observe(this, Observer {adapter.setGoalData(it)})
+            R.id.menu_Day   -> mGoalViewModel.sortByDay.observe(this, Observer {adapter.setGoalData(it)})
+            R.id.menu_week  -> mGoalViewModel.sortByWeek.observe(this, Observer {adapter.setGoalData(it)})
             R.id.menu_month -> mGoalViewModel.sortByMonth.observe(this, Observer {adapter.setGoalData(it)})
-            R.id.menu_year -> mGoalViewModel.sortByYear.observe(this, Observer {adapter.setGoalData(it)})
-            //  else ->
+            R.id.menu_year  -> mGoalViewModel.sortByYear.observe(this, Observer {adapter.setGoalData(it)})
+
         }
         return super.onOptionsItemSelected(item)
     }

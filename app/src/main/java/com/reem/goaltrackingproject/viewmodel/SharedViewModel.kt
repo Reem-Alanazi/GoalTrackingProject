@@ -30,18 +30,10 @@ class SharedViewModel(application: Application):AndroidViewModel(application){
 
      fun convertPeriod(period : String): Period {
         return when(period){
-            "Day" -> {
-                Period.DAY
-            }
-            "Week" -> {
-                Period.WEEK
-            }
-            "Month" -> {
-                Period.MONTH
-            }
-            else -> {
-                Period.YEAR
-            }
+            "Day" -> Period.DAY
+            "Week" -> Period.WEEK
+            "Month" -> Period.MONTH
+            else -> Period.YEAR
         }
     }
 
@@ -69,4 +61,7 @@ class SharedViewModel(application: Application):AndroidViewModel(application){
             Period.YEAR -> 3
         }
     }
+
+
+
 }

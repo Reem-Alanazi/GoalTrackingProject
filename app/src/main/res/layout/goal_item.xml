@@ -28,7 +28,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/period_filter_card"
                 android:layout_width="4dp"
@@ -72,7 +71,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/dateTimer"
                 android:layout_width="41dp"
                 android:layout_height="27dp"
                 android:layout_marginEnd="16dp"
@@ -84,7 +83,5 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

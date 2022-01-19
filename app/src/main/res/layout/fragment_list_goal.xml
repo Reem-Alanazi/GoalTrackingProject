@@ -15,27 +15,28 @@
         tools:context=".fragments.list.ListGoalFragment">
 
         <ImageView
+            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:src="@drawable/img"
             android:scaleType="centerCrop"
-            app:layout_constraintHeight_percent=".27"
-            app:layout_constraintVertical_bias="0"
+            android:src="@drawable/img"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".27"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@drawable/background_view"
-            app:layout_constraintHeight_percent=".78"
-            app:layout_constraintVertical_bias="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".78"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1">
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -48,8 +49,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatingActionButton"
@@ -72,9 +73,9 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="12dp"
                 android:alpha="0.5"
+                android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
                 android:src="@drawable/icon_no_data_found"
                 android:visibility="invisible"
-                android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
@@ -88,11 +89,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:alpha="0.5"
+                android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
                 android:text="@string/no_data"
                 android:textColor="#6FC4FB"
                 android:textSize="16sp"
                 android:visibility="invisible"
-                android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
@@ -100,6 +101,16 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="82dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            tools:srcCompat="@tools:sample/avatars" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

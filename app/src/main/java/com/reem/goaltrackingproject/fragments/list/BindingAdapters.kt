@@ -1,4 +1,4 @@
-package com.reem.goaltrackingproject.fragments
+package com.reem.goaltrackingproject.fragments.list
 
 import android.view.View
 import com.reem.goaltrackingproject.data.Period
@@ -54,6 +54,6 @@ class BindingAdapters  {
                 view.findNavController().navigate(action)
             }
         }
-    }
 
+    }
 }

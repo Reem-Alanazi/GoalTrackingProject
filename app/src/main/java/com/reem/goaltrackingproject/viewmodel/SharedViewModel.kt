@@ -62,6 +62,11 @@ class SharedViewModel(application: Application):AndroidViewModel(application){
         }
     }
 
+    fun timeDate(period: Period){
+
+
+    }
+
 
 
 }

@@ -2,6 +2,7 @@ package com.reem.goaltrackingproject.fragments.list
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import android.widget.Toast
@@ -63,6 +64,13 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
 //            }
 //        })
 
+        val timer = object: CountDownTimer(20000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {}
+
+            override fun onFinish() {}
+        }
+        timer.start()
+
 
         // Set up menu
         setHasOptionsMenu(true)
@@ -98,6 +106,7 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
         itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 
+    // restore removed data
     private fun restoreDeletedGoal(view: View, deletedItem: GoalData, position: Int){
         val snackBar = Snackbar.make(
             view,"Deleted '${deletedItem.title}",
@@ -147,7 +156,7 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
     }
 
     private fun searchInGoalDatabase(goal: String) {
-        // %$searchQuery% Finds any values that have same "searchQuery" in any position
+        // %goal% Finds any values that have same "searchQuery" in any position
         val searchQuery= "%$goal%"
 
         mGoalViewModel.searchDatabase(searchQuery).observe(this, Observer { list ->

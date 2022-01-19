@@ -7,13 +7,11 @@
         <variable
             name="goalItemData"
             type="com.reem.goaltrackingproject.data.GoalData" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="12dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp">
 
@@ -81,6 +79,10 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/description_goal_text"
                 app:layout_constraintTop_toTopOf="parent" />
+<!--            -->
+<!--            <Chronometer-->
+<!--                android:layout_width=""-->
+<!--                android:layout_height=""-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

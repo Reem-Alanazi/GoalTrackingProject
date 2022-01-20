@@ -1,8 +1,6 @@
 package com.reem.goaltrackingproject.fragments.add
 
-import android.icu.text.CaseMap
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -10,16 +8,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.reem.goaltrackingproject.R
 import com.reem.goaltrackingproject.data.GoalData
-import com.reem.goaltrackingproject.data.Period
 import com.reem.goaltrackingproject.viewmodel.GoalViewModel
 import com.reem.goaltrackingproject.viewmodel.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_add_goal.*
 import kotlinx.android.synthetic.main.fragment_add_goal.view.*
-import androidx.appcompat.app.AppCompatActivity
-
-
-
-
 
 class AddGoalFragment : Fragment() {
 
@@ -32,10 +24,8 @@ class AddGoalFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_add_goal, container, false)
-
 
         //set up menu
         setHasOptionsMenu(true)
@@ -44,7 +34,6 @@ class AddGoalFragment : Fragment() {
 
         return view
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.add_goal_fragment_menu, menu)
@@ -78,11 +67,6 @@ class AddGoalFragment : Fragment() {
             findNavController().navigate(R.id.action_addGoalFragment_to_listGoalFragment)
         }else{
             Toast.makeText(requireContext(),"You need to fall all the fields",Toast.LENGTH_SHORT).show()
-
         }
-
-
     }
-
-
 }

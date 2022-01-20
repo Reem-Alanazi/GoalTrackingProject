@@ -20,8 +20,7 @@ class GoalViewModel(application: Application):AndroidViewModel(application) {
     private val repository : GoalRepository
 
        // this val will holds live data object
-     val getAllData:LiveData<List<GoalData>>
-
+    val getAllData:LiveData<List<GoalData>>
     val sortByDay:  LiveData<List<GoalData>>
     val sortByWeek: LiveData<List<GoalData>>
     val sortByMonth: LiveData<List<GoalData>>

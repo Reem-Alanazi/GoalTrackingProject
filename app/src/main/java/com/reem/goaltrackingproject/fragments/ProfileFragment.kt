@@ -26,16 +26,14 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
-
         RemoteDataSource().sentUserData(this)
-
 
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
     fun setUserDataInUI(user : User){
-
 
         mUserDetails = user
         // Load the user image in the ImageView.
@@ -52,10 +50,4 @@ class ProfileFragment : Fragment() {
             et_phone.setText(user.phone.toString())
         }
     }
-
-
-
-
-
-
 }

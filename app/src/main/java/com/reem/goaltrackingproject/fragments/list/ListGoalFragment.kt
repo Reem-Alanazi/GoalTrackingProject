@@ -2,7 +2,6 @@ package com.reem.goaltrackingproject.fragments.list
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import android.widget.Toast
@@ -12,11 +11,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reem.goaltrackingproject.R
 import com.reem.goaltrackingproject.viewmodel.GoalViewModel
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
-import com.reem.goaltrackingproject.CustomCountDownTimer
 import com.reem.goaltrackingproject.data.GoalData
 import com.reem.goaltrackingproject.databinding.FragmentListGoalBinding
 import com.reem.goaltrackingproject.viewmodel.SharedViewModel
@@ -29,9 +26,6 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
     private val adapter : ListAdapter by lazy { ListAdapter()}
     private var _binding : FragmentListGoalBinding? = null
     private val binding get()= _binding!!
-
-    val liveData: MutableLiveData<String> = MutableLiveData()
-    val customCountDownTimer = CustomCountDownTimer(liveData)
 
 
     override fun onCreateView(
@@ -53,23 +47,6 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
          adapter.setGoalData(data)
 
         })
-
-
-        // TODO : CountDown Fun
-
-//        customCountDownTimer.start(1631638786) //Epoch timestamp
-//        customCountDownTimer.mutableLiveData.observe(viewLifecycleOwner, Observer { counterState ->
-//            counterState?.let {
-//                println(counterState)
-//            }
-//        })
-
-        val timer = object: CountDownTimer(20000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {}
-
-            override fun onFinish() {}
-        }
-        timer.start()
 
 
         // Set up menu

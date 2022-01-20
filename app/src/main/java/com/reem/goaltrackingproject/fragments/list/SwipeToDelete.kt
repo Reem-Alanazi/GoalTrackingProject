@@ -15,7 +15,5 @@ abstract class SwipeToDelete: ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.L
         return false
     }
 
-//    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//        TODO("Not yet implemented")
-//    }
+
 }

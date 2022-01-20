@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/listGoalFragment"
         android:name="com.reem.goaltrackingproject.fragments.list.ListGoalFragment"
-        android:label="List Goal"
+        android:label="Goals list"
         tools:layout="@layout/fragment_list_goal">
         <action
             android:id="@+id/action_listGoalFragment_to_addGoalFragment"

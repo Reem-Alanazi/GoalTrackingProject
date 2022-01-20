@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import com.reem.goaltrackingproject.R
 import com.reem.goaltrackingproject.data.RemoteDataSource
@@ -22,9 +21,7 @@ class ProfileFragment : Fragment() {
         private const val PICK_IMAGE_REQUEST_CODE = 2
     }
 
-
     private lateinit var mUserDetails : User
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

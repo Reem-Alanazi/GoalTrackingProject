@@ -14,13 +14,11 @@ class RemoteDataSource {
 
     private val db = FirebaseFirestore.getInstance()
 
-
     fun registerUser(activity: SignUpActivity, userInfo: User) {
 
         db.collection(Constants.USERS)
 
             .document(getCurrentUserId()).set(userInfo, SetOptions.merge())
-
 
             .addOnSuccessListener {
 
@@ -54,11 +52,10 @@ class RemoteDataSource {
 
             }.addOnFailureListener { e ->
 
+                Log.e(fragment.javaClass.simpleName, "Error Writing document")
             }
-        Log.e(fragment.javaClass.simpleName, "Error Writing document")
 
     }
-
 
     // check
     fun getCurrentUserId(): String {

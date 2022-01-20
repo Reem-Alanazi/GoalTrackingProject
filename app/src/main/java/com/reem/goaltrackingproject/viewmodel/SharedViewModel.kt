@@ -19,7 +19,6 @@ class SharedViewModel(application: Application):AndroidViewModel(application){
     fun checkIfDatabaseEmpty(goalData: List<GoalData>){
         emptyDatabase.value = goalData.isEmpty()
     }
-
        // if null or not
      fun verifyDataFromUser(title: String, description : String ): Boolean{
         return if(TextUtils.isEmpty(title)|| TextUtils.isEmpty(description)){
@@ -48,10 +47,8 @@ class SharedViewModel(application: Application):AndroidViewModel(application){
               3 -> {(parent!!.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application, R.color.green))}
             }
         }
-
         override fun onNothingSelected(parent: AdapterView<*>?) {}
-
-    }
+        }
 
      fun convertPeriodToInt(period: Period):Int{
         return when(period){
@@ -61,12 +58,4 @@ class SharedViewModel(application: Application):AndroidViewModel(application){
             Period.YEAR -> 3
         }
     }
-
-    fun timeDate(period: Period){
-
-
-    }
-
-
-
 }

@@ -20,15 +20,17 @@ import com.reem.goaltrackingproject.data.GoalData
 import com.reem.goaltrackingproject.databinding.FragmentListGoalBinding
 import com.reem.goaltrackingproject.viewmodel.SharedViewModel
 import jp.wasabeef.recyclerview.animators.LandingAnimator
+import java.util.concurrent.TimeUnit
 
 class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
+
+    // var days: Long = TimeUnit.MILLISECONDS.toDays(milliseconds)
 
     private val mGoalViewModel : GoalViewModel by viewModels()
     private val mSharedViewModel : SharedViewModel by viewModels()
     private val adapter : ListAdapter by lazy { ListAdapter()}
     private var _binding : FragmentListGoalBinding? = null
     private val binding get()= _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +51,6 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
          adapter.setGoalData(data)
 
         })
-
 
         // Set up menu
         setHasOptionsMenu(true)
@@ -117,7 +118,6 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
             R.id.menu_month -> mGoalViewModel.sortByMonth.observe(this, Observer {adapter.setGoalData(it)})
             R.id.menu_year  -> mGoalViewModel.sortByYear.observe(this, Observer {adapter.setGoalData(it)})
             R.id.menu_sign_out -> FirebaseAuth.getInstance().signOut()
-
         }
         return super.onOptionsItemSelected(item)
     }
@@ -126,13 +126,11 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
         if(query!=null){
             searchInGoalDatabase(query)
         }
-
         return true
     }
 
     override fun onQueryTextChange(query: String): Boolean {
         searchInGoalDatabase(query)
-
         return true
     }
 
@@ -155,7 +153,6 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
             Toast.makeText(requireContext(),"Successfully Removed All Goals", Toast.LENGTH_SHORT)
                 .show()
         }
-
         builder.setNegativeButton("No"){_,_ -> }
         builder.setTitle("Delete All?")
         builder.setMessage("Are you sure you want to remove all goals?")
@@ -167,7 +164,5 @@ class ListGoalFragment : Fragment(),SearchView.OnQueryTextListener {
         super.onDestroyView()
         _binding = null
     }
-
-
 }
 

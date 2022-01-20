@@ -30,10 +30,6 @@ class UpdateGoalFragment : Fragment() {
         // Inflate the layout for this fragment
          val view = inflater.inflate(R.layout.fragment_update_goal, container, false)
 
-//        view.item_background.setOnClickListener {
-//            findNavController().navigate(R.id.action_listGoalFragment_to_updateGoalFragment)
-//        }
-
         setHasOptionsMenu(true)
 
         view.current_title_et.setText(args.currentGoal.title)
@@ -56,8 +52,6 @@ class UpdateGoalFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-
 
     // update the current item goal
     private fun updateGoal() {

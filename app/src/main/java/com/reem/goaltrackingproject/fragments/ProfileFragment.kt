@@ -14,6 +14,15 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
 
+    companion object {
+        //A unique code for asking the Read Storage Permission using
+        // this we will be check and identify in the method onRequestPermissionsResult
+        private const val READ_STORAGE_PERMISSION_CODE = 1
+
+        private const val PICK_IMAGE_REQUEST_CODE = 2
+    }
+
+
     private lateinit var mUserDetails : User
 
 

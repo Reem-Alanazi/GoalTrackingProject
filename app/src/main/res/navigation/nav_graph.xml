@@ -24,6 +24,9 @@
             app:exitAnim="@anim/to_right"
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_listGoalFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/addGoalFragment"
@@ -45,5 +48,14 @@
         <argument
             android:name="currentGoal"
             app:argType="com.reem.goaltrackingproject.data.GoalData" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.reem.goaltrackingproject.fragments.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_listGoalFragment"
+            app:destination="@id/listGoalFragment" />
     </fragment>
 </navigation>

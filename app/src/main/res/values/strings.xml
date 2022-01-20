@@ -41,6 +41,8 @@
     <string name="title_goal">Title Goal</string>
     <string name="list_goals">List Goals</string>
     <string name="myname">Reem</string>
+    <string name="profile">Profile</string>
+    <string name="phone">Phone</string>
 
     <string-array name="period">
         <item>Day</item>
